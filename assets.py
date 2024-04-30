@@ -25,7 +25,14 @@ def assetsInit():
     gWindow.set_icon(icon)
     
     pyglet.font.add_directory('assets\Fonts')
-    Pusab = pyglet.font.load('Pusab')
+    Pusab = pyglet.font.load('Pusab', 24)
+
+    fps_display.label.font_name = 'Pusab'
+    fps_display.label.x = 10
+    fps_display.label.y = (SCRN_H - 10)
+    fps_display.label.anchor_x = 'left'
+    fps_display.label.anchor_y = 'top'
+
 
 def createObj(messrting, font, size, color, x, y, anchor_x, anchor_y):
     tObj = Rtext(messrting, font, size, color, x, y, anchor_x, anchor_y)
@@ -34,9 +41,9 @@ def createObj(messrting, font, size, color, x, y, anchor_x, anchor_y):
     del tObj
 
 def loadMenuStart():
-    createObj("Nightmare at Walmart", 'Pusab', 64, white, 50, (SCRN_H - 50), 'left', 'center')
-    createObj("New Game", 'Pusab', 48, white, 90, (SCRN_H - 300), 'left', 'center')
-    createObj("Continue", 'Pusab', 48, white, 90, (SCRN_H - 360), 'left', 'center')
-    createObj("Controls", 'Pusab', 48, white, 90, (SCRN_H - 540), 'left', 'center')
-    createObj("Settings", 'Pusab', 48, white, 90, (SCRN_H - 600), 'left', 'center')
-    createObj("Exit", 'Pusab', 48, white, 90, (SCRN_H - 660), 'left', 'center')
+    createObj("Nightmare at Walmart", 'Pusab', 64, white, 50, (SCRN_H - 50), 'left', 'top')
+    createObj("New Game", 'Pusab', 48, white, 90, (SCRN_H - 280), 'left', 'top')
+    createObj("Continue", 'Pusab', 48, white, 90, (SCRN_H - 340), 'left', 'top')
+    createObj("Controls", 'Pusab', 48, white, 90, (SCRN_H - 520), 'left', 'top')
+    createObj("Settings", 'Pusab', 48, white, 90, (SCRN_H - 580), 'left', 'top')
+    createObj("Exit", 'Pusab', 48, white, 90, (SCRN_H - 640), 'left', 'top')

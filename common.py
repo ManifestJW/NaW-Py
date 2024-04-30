@@ -7,3 +7,5 @@ ASPR_W = 16
 ASPR_H = 9
 
 gWindow = pyglet.window.Window(SCRN_W, SCRN_H, "NaW")
+
+fps_display = pyglet.window.FPSDisplay(window=gWindow, samples=100)
