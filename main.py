@@ -1,5 +1,9 @@
 import pyglet
-from assets import *
+
+from assets import assetsInit
+from assets import loadMenuStart
+
+from events import on_draw
 
 assetsInit()
 loadMenuStart()

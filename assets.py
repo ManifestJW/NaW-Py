@@ -1,28 +1,9 @@
 import pyglet
 
-from pyglet import window
-from pyglet import image
-from pyglet import text
-from pyglet import font
-
-SCRN_W = 1280
-SCRN_H = 720
-
-ASPR_W = 16
-ASPR_H = 9
-
-gWindow = window.Window(SCRN_W, SCRN_H, "NaW")
-
-white = (255, 255, 255, 255)
+from common import *
+from colors import *
 
 labels = []
-
-def assetsInit():
-    icon = image.load('assets\Img\WindowIcon.ico')
-    gWindow.set_icon(icon)
-    
-    font.add_directory('assets\Fonts')
-    Pusab = font.load('Pusab')
 
 class Rtext:
     def __init__(self, messrting, font, size, color, x, y, anchor_x, anchor_y):
@@ -36,9 +17,15 @@ class Rtext:
         self.anchor_y = anchor_y
     
     def create(self):
-        label = text.Label(self.messrting, font_name=self.font, font_size=self.size, color=self.color, x=self.x, y=self.y, anchor_x=self.anchor_x, anchor_y=self.anchor_y)
+        label = pyglet.text.Label(self.messrting, font_name=self.font, font_size=self.size, color=self.color, x=self.x, y=self.y, anchor_x=self.anchor_x, anchor_y=self.anchor_y)
         return label
 
+def assetsInit():
+    icon = pyglet.image.load('assets\Img\WindowIcon.ico')
+    gWindow.set_icon(icon)
+    
+    pyglet.font.add_directory('assets\Fonts')
+    Pusab = pyglet.font.load('Pusab')
 
 def createObj(messrting, font, size, color, x, y, anchor_x, anchor_y):
     tObj = Rtext(messrting, font, size, color, x, y, anchor_x, anchor_y)
@@ -48,10 +35,8 @@ def createObj(messrting, font, size, color, x, y, anchor_x, anchor_y):
 
 def loadMenuStart():
     createObj("Nightmare at Walmart", 'Pusab', 64, white, 50, (SCRN_H - 50), 'left', 'center')
-
-@gWindow.event
-def on_draw():
-    gWindow.clear()
-    
-    for x in range(len(labels)):
-        labels[x].draw()
+    createObj("New Game", 'Pusab', 48, white, 90, (SCRN_H - 300), 'left', 'center')
+    createObj("Continue", 'Pusab', 48, white, 90, (SCRN_H - 360), 'left', 'center')
+    createObj("Controls", 'Pusab', 48, white, 90, (SCRN_H - 540), 'left', 'center')
+    createObj("Settings", 'Pusab', 48, white, 90, (SCRN_H - 600), 'left', 'center')
+    createObj("Exit", 'Pusab', 48, white, 90, (SCRN_H - 660), 'left', 'center')
