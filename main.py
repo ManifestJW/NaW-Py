@@ -5,8 +5,12 @@ from assets import loadMenuStart
 
 from events import on_draw
 
+from RobberAI import generateRandomSeedRobber
+from BearAI import generateRandomSeedBear
+
 assetsInit()
+generateRandomSeedRobber()
+generateRandomSeedBear()
 loadMenuStart()
-on_draw()
 
 pyglet.app.run()
